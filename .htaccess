@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /galeria/
+  RewriteCond %{RESQUEST_FILENAME} !-f
+  RewriteCond %{RESQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ index.php?/$1 [L]
+  #Recordar quitar el juntar para que funcione
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+
+  ErrorDocument 404 /index.php
+</IfModule>
